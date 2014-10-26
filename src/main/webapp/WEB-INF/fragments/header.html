@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<div th:fragment="header">
+		<a href="#">My project</a>
+	</div>
+	<div>
+		<ul>
+			<li class="active"><a href="#" th:href="@{/}">Home</a></li>
+			<li><a href="#" th:href="@{/message}">Messages</a></li>
+			<li><a href="#" th:href="@{/task}">Tasks</a></li>
+		</ul>
+		<ul>
+			<li th:if="${#authorization.expression('!isAuthenticated()')}">
+				<a href="/signin" th:href="@{/signin}">Sign in</a>
+			</li>
+			<li th:if="${#authorization.expression('isAuthenticated()')}"><a
+				href="/logout" th:href="@{/logout}">Logout</a></li>
+		</ul>
+	</div>
+</body>
+</html>
