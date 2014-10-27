@@ -1,15 +1,19 @@
-
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>Home</title>
-</head>
-<body>
-	<h1>Hello world!</h1>
-	<div th:include="fragments/header::header">cannot load template:
-		header,</div>
-	<div th:replace="${view} :: content">Content</div>
-	<div th:include="fragments/footer::footer">cannot load template:
-		footer, fragment: footer</div>
-</body>
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <title>Layout page</title>
+   </head>
+  <body>
+    <header>
+      <h1>Spring web MVC</h1>
+    </header>
+    <section layout:fragment="content">
+      <p>Page content goes here</p>
+    </section>
+    <footer>
+      <p>Page footer</p>
+      <p layout:fragment="custom-footer">&copy; 2014 Footer</p>
+    </footer>  
+  </body>
 </html>
